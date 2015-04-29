@@ -1,0 +1,50 @@
+
+body {
+  font-size: 16px;
+  font-family: Palatino, Optima, Georgia, serif;
+  line-height: 1.6em;
+  padding: 100px 100px 400px 100px;
+}
+
+.about {
+  margin: 40px 0;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.loading-indicator {
+  width: 200px;
+  margin: 0;
+}
+
+.copyarea {
+  line-height: 32px;
+  font-size: 18px;
+  padding: 0 8px;
+  font-family: Palatino, Optima;
+}
+
+.color-chooser .is-chosen {
+  transform: scale(1.2);
+}
+
+.tabs-wrapper {
+  margin: 20px;
+  width: 600px;
+  border: 1px solid #ddd;
+}
+
+.tabs-wrapper .content {
+  padding: 10px;
+  font-size: 16px;
+}
+
+.wheeling {
+  height: 100px;
+  border: 1px solid #aaa;
+}
+
+.wheeling .content {
+  height: 400px;
+  padding: 40px;
+}
