@@ -16,6 +16,10 @@ Demo: http://teambition.github.io/react-lite-misc/
 * `Switcher` iOS style of switching
 * `Wheeling` debounce wheel events, detect loading more
 
+Writing docs for so many components is tough... Read [main.jsx](main) for details.
+
+[main]: https://github.com/teambition/react-lite-misc/blob/gh-pages/src/main.jsx
+
 ### Usage
 
 ```bash

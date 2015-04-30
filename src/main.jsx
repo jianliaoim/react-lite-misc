@@ -69,7 +69,7 @@ var App = React.createClass({
   },
 
   renderCopyarea: function() {
-    return <Copyarea text="hover and copy"/>
+    return <Copyarea text="Hover and use Command C"/>
   },
 
   renderLoadingIndicator: function() {
@@ -102,19 +102,19 @@ var App = React.createClass({
       </pre>
       <Wheeling onScroll={this.onScroll}>
         <div className="content">
-          {'something inside scroll:'}
+          {'Scroll and stop to see result'}
           <br/><br/>
-          {'something inside scroll:'}
+          {'Scroll and stop to see result'}
           <br/><br/>
-          {'something inside scroll:'}
+          {'Scroll and stop to see result'}
           <br/><br/>
-          {'something inside scroll:'}
+          {'Scroll and stop to see result'}
           <br/><br/>
-          {'something inside scroll:'}
+          {'Scroll and stop to see result'}
           <br/><br/>
-          {'something inside scroll:'}
+          {'Scroll and stop to see result'}
           <br/><br/>
-          {'something inside scroll:'}
+          {'Scroll and stop to see result'}
         </div>
       </Wheeling>
     </div>
@@ -124,15 +124,15 @@ var App = React.createClass({
     return <div className="app">
       <div className="about">{'Color Chooser'}</div>
       {this.renderColorChooser()}
-      <div className="about">{'try copy'}</div>
+      <div className="about">{'<input> copies quickly'}</div>
       {this.renderCopyarea()}
-      <div className="about">{'loading'}</div>
+      <div className="about">{'Loading spots'}</div>
       {this.renderLoadingIndicator()}
-      <div className="about">{'switcher'}</div>
+      <div className="about">{'Switcher'}</div>
       {this.renderSwitcher()}
-      <div className="about">{'tabs'}</div>
+      <div className="about">{'Tabs to switch'}</div>
       {this.renderSwitchTabs()}
-      <div className="about">{'scroller'}</div>
+      <div className="about">{'Wheel events debounced'}</div>
       {this.renderWheeling()}
     </div>
   }
