@@ -15,6 +15,7 @@ module.exports = React.createClass
     onTabClick: T.func.isRequired
     tab:        T.string.isRequired
     iconMap:    T.object
+    getText:    T.func.isRequired
 
   onTabClick: (tab) ->
     @props.onTabClick tab

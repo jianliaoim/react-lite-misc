@@ -2,26 +2,26 @@
 import {default as React} from 'react'
 
 import {ColorChooser} from './index'
-import './color-chooser.css';
+import './color-chooser';
 
 import {Copyarea} from './index'
-import './copyarea.css'
+import './copyarea'
 
 // not ready
 // import {ImageLoading} from './index'
-import './image-loading.css'
+import './image-loading'
 
 import {LoadingIndicator} from './index'
-import './loading-indicator.css'
+import './loading-indicator'
 
 import {Switcher} from './index'
-import './switcher.css'
+import './switcher'
 
 import {SwitchTabs} from './index'
-import './switch-tabs.css'
+import './switch-tabs'
 
 import {Wheeling} from './index'
-import './wheeling.css'
+import './wheeling'
 
 import './demo.css'
 
