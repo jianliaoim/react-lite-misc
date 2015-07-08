@@ -7,7 +7,7 @@ env =
   dev: true
   main: 'http://localhost:8080/build/main.js'
 
-gulp.task 'coffee', ->
+gulp.task 'script', ->
   coffee = require('gulp-coffee')
   gulp
   .src 'src/*.coffee'
