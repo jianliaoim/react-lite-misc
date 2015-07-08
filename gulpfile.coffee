@@ -14,6 +14,22 @@ gulp.task 'script', ->
   .pipe coffee()
   .pipe gulp.dest('lib/')
 
+gulp.task 'rsync', (cb) ->
+  wrapper = require 'rsyncwrapper'
+  wrapper.rsync
+    ssh: true
+    src: ['index.html', 'build']
+    recursive: true
+    args: ['--verbose']
+    dest: 'talk-ui:/teambition/server/talk-ui/react-lite-misc'
+    deleteAll: true
+  , (error, stdout, stderr, cmd) ->
+    if error?
+      throw error
+    console.error stderr
+    console.log cmd
+    cb()
+
 gulp.task 'html', (cb) ->
   require('cirru-script/lib/register')
   html = require('./template.cirru')
