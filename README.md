@@ -4,7 +4,7 @@ React Lite Misc Components
 
 Misc components from Talk by Teambition.
 
-Demo: http://teambition.github.io/react-lite-misc/
+Demo: http://ui.talk.ai/react-lite-misc/
 
 ### Components
 
