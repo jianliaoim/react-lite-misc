@@ -23,4 +23,4 @@ module.exports = React.createClass
         'switch-button': true
         'is-checked': @props.checked
       onClick: @onClick
-      div className: 'button', @props.checked
+      div className: 'inner-button', @props.checked

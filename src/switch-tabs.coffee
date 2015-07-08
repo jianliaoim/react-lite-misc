@@ -15,6 +15,7 @@ module.exports = React.createClass
     onTabClick: T.func.isRequired
     tab:        T.string.isRequired
     iconMap:    T.object
+    getText:    T.func
 
   onTabClick: (tab) ->
     @props.onTabClick tab
@@ -28,10 +29,11 @@ module.exports = React.createClass
       icon = @props.iconMap[tab]
     else
       icon = undefined
+    text = if @props.getText? then @props.getText(tab) else tab
     div key: tab, className: className, onClick: onClick,
       if icon
         span className: "icon icon-#{icon}"
-      span className: 'text', tab
+      span className: 'text', text
 
   render: ->
     classObject =

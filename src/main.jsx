@@ -2,7 +2,7 @@
 import {default as React} from 'react'
 
 import {ColorChooser} from './index'
-import './color-chooser.css';
+import './color-chooser.css'
 
 import {Copyarea} from './index'
 import './copyarea.css'
