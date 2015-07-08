@@ -5,7 +5,6 @@
   "main": "lib/index.js",
   "dependencies": {
     "classnames": "^1.2.0",
-    "lodash": "^3.1.0",
     "react": "^0.13.1"
   },
   "devDependencies": {
