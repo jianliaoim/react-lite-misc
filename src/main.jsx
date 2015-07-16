@@ -1,62 +1,82 @@
+'use strict';
 
-import {default as React} from 'react'
+import React from 'react';
 
-import {ColorChooser} from './index'
-import './color-chooser.css'
+import {ColorChooser} from './index';
+import './color-chooser.css';
 
-import {Copyarea} from './index'
-import './copyarea.css'
+import {Copyarea} from './index';
+import './copyarea.css';
 
 // not ready
 // import {ImageLoading} from './index'
-import './image-loading.css'
+import './image-loading.css';
 
-import {LoadingIndicator} from './index'
-import './loading-indicator.css'
+import {LoadingIndicator} from './index';
+import './loading-indicator.css';
 
-import {Switcher} from './index'
-import './switcher.css'
+import {Switcher} from './index';
+import './switcher.css';
 
-import {SwitchTabs} from './index'
-import './switch-tabs.css'
+import {SwitchTabs} from './index';
+import './switch-tabs.css';
 
-import {Wheeling} from './index'
-import './wheeling.css'
+import {Wheeling} from './index';
+import './wheeling.css';
 
-import './demo.css'
+import {SearchBox} from './index';
+require('teambition-icon-fonts/css/teambition-ui-icons.css');
+import './search-box.css';
 
-var tabs = ['one', 'two', 'three']
+import {LoadingMore} from './index';
+import './loading-more.css'
+
+import {ImageLoading} from './index';
+import './image-loading.css';
+
+import './demo.css';
+
+var tabs = ['one', 'two', 'three'];
 
 var App = React.createClass({
 
-  getInitialState: function() {
+  getInitialState() {
     return {
       color: 'blue',
       isSwicherOn: false,
       tab: tabs[0],
-      info: ''
-    }
+      info: '',
+      searchBoxValue: 'teambition',
+      showImageLoading: false,
+      showLoadingMore: true,
+      endLoadingMore: false
+    };
   },
 
-  onColorClick: function(color) {
-    this.setState({color: color})
+  onSearchChange(value){
+    this.setState({searchBoxValue: value});
   },
 
-  onSwitcherClick: function() {
-    this.setState({isSwicherOn: !this.state.isSwicherOn})
+
+  onColorClick(color) {
+    this.setState({color: color});
   },
 
-  onTabClick: function(tab) {
-    this.setState({tab: tab})
+  onSwitcherClick() {
+    this.setState({isSwicherOn: !this.state.isSwicherOn});
   },
 
-  onScroll: function(info) {
-    this.setState({info: info})
+  onTabClick(tab) {
+    this.setState({tab: tab});
+  },
+
+  onScroll(info) {
+    this.setState({info: info});
   },
 
   // renderers
 
-  renderColorChooser: function() {
+  renderColorChooser() {
     return <ColorChooser
       onColorClick={this.onColorClick}
       chosen={this.state.color}
@@ -65,24 +85,24 @@ var App = React.createClass({
         green: '#0f0',
         blue: '#00f'
       }}
-    ></ColorChooser>
+    ></ColorChooser>;
   },
 
-  renderCopyarea: function() {
-    return <Copyarea text="Hover and use Command C"/>
+  renderCopyarea() {
+    return <Copyarea text="Hover and use Command C"/>;
   },
 
-  renderLoadingIndicator: function() {
-    return <LoadingIndicator/>
+  renderLoadingIndicator() {
+    return <LoadingIndicator/>;
   },
 
-  renderSwitcher: function() {
+  renderSwitcher() {
     return <Switcher
       checked={this.state.isSwicherOn}
-      onClick={this.onSwitcherClick} />
+      onClick={this.onSwitcherClick} />;
   },
 
-  renderSwitchTabs: function() {
+  renderSwitchTabs() {
     return <div className="tabs-wrapper">
       <SwitchTabs data={tabs} onTabClick={this.onTabClick} tab={this.state.tab} />
       <div className="content">
@@ -90,10 +110,10 @@ var App = React.createClass({
         {(this.state.tab == 'two') ? <div>{'content of tab two'}</div> : undefined}
         {(this.state.tab == 'three') ? <div>{'content of tab three'}</div> : undefined}
       </div>
-    </div>
+    </div>;
   },
 
-  renderWheeling: function() {
+  renderWheeling() {
     return <div>
       <pre>
         <code>
@@ -117,25 +137,83 @@ var App = React.createClass({
           {'Scroll and stop to see result'}
         </div>
       </Wheeling>
-    </div>
+    </div>;
   },
+  renderSearchBox() {
+    return <SearchBox value={this.state.searchBoxValue} autoFocus={false} onChange={this.onSearchChange} onBlur={()=>{alert('Blurred')}} onConfirm={()=>{alert('Confirmed')}}
+      locale="zh-cn"/>;
+  },
+  renderLoadingMore(){
+    return (
+      <div className="loading-more-demo">
+        <div className="switch">
+          Show:
+          <Switcher
+              checked={this.state.showLoadingMore}
+              onClick={()=>{
+                this.setState({showLoadingMore:!this.state.showLoadingMore})
+              }}/>
+        </div>
+        <div className="switch">
+          End:
+          <Switcher
+              checked={this.state.endLoadingMore}
+              onClick={()=>{
+                this.setState({endLoadingMore:!this.state.endLoadingMore})
+              }}/>
+        </div>
+        <LoadingMore show={this.state.showLoadingMore} end={this.state.endLoadingMore} endLocale="Ended"/>
 
+      </div>
+    );
+  },
+  renderImageLoading(){
+
+    return  <div>
+              {this.state.showImageLoading?<ImageLoading src="https://ununsplash.imgix.net/photo-1433959352364-9314c5b6eb0b?fit=crop&fm=jpg&h=700&q=75&w=1050"/>
+                  :<button onClick={()=>{this.setState({showImageLoading: true})}}>Show Image Loading</button>}
+            </div>;
+  },
   render: function() {
     return <div className="app">
-      <div className="about">{'Color Chooser'}</div>
-      {this.renderColorChooser()}
-      <div className="about">{'<input> copies quickly'}</div>
-      {this.renderCopyarea()}
-      <div className="about">{'Loading spots'}</div>
-      {this.renderLoadingIndicator()}
-      <div className="about">{'Switcher'}</div>
-      {this.renderSwitcher()}
-      <div className="about">{'Tabs to switch'}</div>
-      {this.renderSwitchTabs()}
-      <div className="about">{'Wheel events debounced'}</div>
-      {this.renderWheeling()}
-    </div>
+      <div className="about">
+        <h2>Color Chooser</h2>
+        {this.renderColorChooser()}
+      </div>
+      <div className="about">
+        <h2>{'<input> copies quickly'}</h2>
+        {this.renderCopyarea()}
+      </div>
+      <div className="about">
+        <h2>Loading spots</h2>
+        {this.renderLoadingIndicator()}
+      </div>
+      <div className="about">
+        <h2>Switcher</h2>
+        {this.renderSwitcher()}
+      </div>
+      <div className="about">
+        <h2>Tabs to switch</h2>
+        {this.renderSwitchTabs()}
+      </div>
+      <div className="about">
+        <h2>Wheel events debounced</h2>
+        {this.renderWheeling()}
+      </div>
+      <div className="about">
+        <h2>Search Box</h2>
+        {this.renderSearchBox()}
+      </div>
+      <div className="about">
+        <h2>Loading More</h2>
+        {this.renderLoadingMore()}
+      </div>
+      <div className="about">
+        <h2>Image Loading</h2>
+        {this.renderImageLoading()}
+      </div>
+    </div>;
   }
-})
+});
 
-React.render(<App/>, document.querySelector('.demo'))
+React.render(<App/>, document.querySelector('.demo'));

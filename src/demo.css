@@ -7,7 +7,9 @@ body {
 }
 
 .about {
-  margin: 40px 0;
+  margin: 50px 0;
+}
+.about h2{
   font-weight: bold;
   font-size: 24px;
 }
@@ -48,4 +50,9 @@ body {
 .wheeling .content {
   height: 400px;
   padding: 40px;
+}
+
+.loading-more-demo .switch{
+  display:inline-block;
+  margin:0 17px 0 0;
 }

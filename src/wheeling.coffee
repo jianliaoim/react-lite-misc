@@ -16,7 +16,7 @@ module.exports = React.createClass
     @_rootEl = @getDOMNode()
     @debounceDetect = debounce @detect, 400
 
-  onWheel: (evet) ->
+  onWheel: (event) ->
     @debounceDetect(event)
 
   detect: (event) ->
