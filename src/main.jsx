@@ -1,42 +1,36 @@
-'use strict';
+import React from 'react'
 
-import React from 'react';
+import {ColorChooser} from './index'
+import './color-chooser.css'
 
-import {ColorChooser} from './index';
-import './color-chooser.css';
+import {Copyarea} from './index'
+import './copyarea.css'
 
-import {Copyarea} from './index';
-import './copyarea.css';
+import {LoadingIndicator} from './index'
+import './loading-indicator.css'
 
-// not ready
-// import {ImageLoading} from './index'
-import './image-loading.css';
+import {Switcher} from './index'
+import './switcher.css'
 
-import {LoadingIndicator} from './index';
-import './loading-indicator.css';
+import {SwitchTabs} from './index'
+import './switch-tabs.css'
 
-import {Switcher} from './index';
-import './switcher.css';
+import {Wheeling} from './index'
+import './wheeling.css'
 
-import {SwitchTabs} from './index';
-import './switch-tabs.css';
+import {SearchBox} from './index'
+require('teambition-icon-fonts/css/teambition-ui-icons.css')
+import './search-box.css'
 
-import {Wheeling} from './index';
-import './wheeling.css';
-
-import {SearchBox} from './index';
-require('teambition-icon-fonts/css/teambition-ui-icons.css');
-import './search-box.css';
-
-import {LoadingMore} from './index';
+import {LoadingMore} from './index'
 import './loading-more.css'
 
-import {ImageLoading} from './index';
-import './image-loading.css';
+import {ImageLoading} from './index'
+import './image-loading.css'
 
-import './demo.css';
+import './demo.css'
 
-var tabs = ['one', 'two', 'three'];
+var tabs = ['one', 'two', 'three']
 
 var App = React.createClass({
 
@@ -54,24 +48,24 @@ var App = React.createClass({
   },
 
   onSearchChange(value){
-    this.setState({searchBoxValue: value});
+    this.setState({searchBoxValue: value})
   },
 
 
   onColorClick(color) {
-    this.setState({color: color});
+    this.setState({color: color})
   },
 
   onSwitcherClick() {
-    this.setState({isSwicherOn: !this.state.isSwicherOn});
+    this.setState({isSwicherOn: !this.state.isSwicherOn})
   },
 
   onTabClick(tab) {
-    this.setState({tab: tab});
+    this.setState({tab: tab})
   },
 
   onScroll(info) {
-    this.setState({info: info});
+    this.setState({info: info})
   },
 
   // renderers
@@ -85,21 +79,21 @@ var App = React.createClass({
         green: '#0f0',
         blue: '#00f'
       }}
-    ></ColorChooser>;
+    ></ColorChooser>
   },
 
   renderCopyarea() {
-    return <Copyarea text="Hover and use Command C"/>;
+    return <Copyarea text="Hover and use Command C"/>
   },
 
   renderLoadingIndicator() {
-    return <LoadingIndicator/>;
+    return <LoadingIndicator/>
   },
 
   renderSwitcher() {
     return <Switcher
       checked={this.state.isSwicherOn}
-      onClick={this.onSwitcherClick} />;
+      onClick={this.onSwitcherClick} />
   },
 
   renderSwitchTabs() {
@@ -110,7 +104,7 @@ var App = React.createClass({
         {(this.state.tab == 'two') ? <div>{'content of tab two'}</div> : undefined}
         {(this.state.tab == 'three') ? <div>{'content of tab three'}</div> : undefined}
       </div>
-    </div>;
+    </div>
   },
 
   renderWheeling() {
@@ -141,7 +135,7 @@ var App = React.createClass({
   },
   renderSearchBox() {
     return <SearchBox value={this.state.searchBoxValue} autoFocus={false} onChange={this.onSearchChange} onBlur={()=>{alert('Blurred')}} onConfirm={()=>{alert('Confirmed')}}
-      locale="zh-cn"/>;
+      locale="zh-cn"/>
   },
   renderLoadingMore(){
     return (
@@ -172,7 +166,7 @@ var App = React.createClass({
     return  <div>
               {this.state.showImageLoading?<ImageLoading src="https://ununsplash.imgix.net/photo-1433959352364-9314c5b6eb0b?fit=crop&fm=jpg&h=700&q=75&w=1050"/>
                   :<button onClick={()=>{this.setState({showImageLoading: true})}}>Show Image Loading</button>}
-            </div>;
+            </div>
   },
   render: function() {
     return <div className="app">
@@ -212,8 +206,8 @@ var App = React.createClass({
         <h2>Image Loading</h2>
         {this.renderImageLoading()}
       </div>
-    </div>;
+    </div>
   }
 });
 
-React.render(<App/>, document.querySelector('.demo'));
+React.render(<App/>, document.querySelector('.demo'))

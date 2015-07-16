@@ -10,14 +10,13 @@ Demo: http://ui.talk.ai/react-lite-misc/
 
 * `ColorChooser` simple color chooser
 * `Copyarea` hover input and copy text
-* `ImageLoading`(not ready) show loading while image is loading
 * `LoadingIndicator` animate three spots as loading
 * `SwitchTabs` click tabs to switch
 * `Switcher` iOS style of switching
 * `Wheeling` debounce wheel events, detect loading more
 * `SearchBox`
 * `LoadingMore`
-* `ImageLoading`
+* `ImageLoading` show loading while image is loading
 
 Writing docs for so many components is tough... Read [main.jsx](main) for details.
 
