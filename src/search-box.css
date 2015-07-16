@@ -1,0 +1,38 @@
+.search-box {
+    width: 200px;
+    border: 1px solid hsla(0,0%,0%,0.1);
+    height: 36px;
+
+    padding: 0 10px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+    -webkit-justify-content: start;
+    -ms-flex-pack: start;
+    justify-content: start;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    border-radius: 3px;
+}
+
+.search-box .icon-search {
+    color: #AAAAAA;
+    line-height: 36px;
+}
+
+.search-box .input {
+    width: 160px;
+    line-height: 32px;
+    border: none;
+    outline: none;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    -webkit-font-smoothing: antialiased;
+}

@@ -15,6 +15,9 @@ Demo: http://teambition.github.io/react-lite-misc/
 * `SwitchTabs` click tabs to switch
 * `Switcher` iOS style of switching
 * `Wheeling` debounce wheel events, detect loading more
+* `SearchBox`
+* `LoadingMore`
+* `ImageLoading`
 
 Writing docs for so many components is tough... Read [main.jsx](main) for details.
 
