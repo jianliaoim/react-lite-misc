@@ -56,3 +56,21 @@ body {
   display:inline-block;
   margin:0 17px 0 0;
 }
+
+.image-loading-demo {
+  width:100%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  min-height:260px;
+}
+
+.image-loading-demo * {
+  display: block;
+  margin:auto;
+}
+.image-loading-demo img {
+  height:220px;
+  width:auto;
+}

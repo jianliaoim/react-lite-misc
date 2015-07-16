@@ -15,14 +15,17 @@ module.exports = React.createClass
 
   render: ->
     className = cx 'loading-more', 'loading-indicator',
-      'is-hidden': (not @props.show) and (not @props.end)
       muted: @props.end
 
-    div className: className,
+
+    if @props.show
       if @props.end
-        @props.endLocale
-      else [
-        div key: 'a', className: 'loader-dot'
-        div key: 'b', className: 'loader-dot'
-        div key: 'c', className: 'loader-dot'
-      ]
+        div className: className,
+          @props.endLocale
+      else
+        div className: className,
+          div className: 'loader-dot'
+          div className: 'loader-dot'
+          div className: 'loader-dot'
+    else
+      div className: className

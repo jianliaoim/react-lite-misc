@@ -54,6 +54,7 @@
   width: 70px;
   text-align: center;
   z-index: 9999;
+  height: 26px;
 }
 .loading-indicator .loader-dot {
   display: inline-block;
