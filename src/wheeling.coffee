@@ -17,7 +17,7 @@ module.exports = React.createClass
     @debounceDetect = debounce @detect, 400
 
   onWheel: (event) ->
-    @debounceDetect(event)
+    @debounceDetect(event.nativeEvent)
 
   detect: (event) ->
     info =
