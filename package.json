@@ -4,8 +4,8 @@
   "description": "Misc components from Talk by teambition",
   "main": "lib/index.js",
   "dependencies": {
-    "classnames": "^1.2.0",
-    "react": "^0.13.1",
+    "classnames": "^2.1.3",
+    "react": "^0.13.3",
     "teambition-icon-fonts": "^0.72.6"
   },
   "devDependencies": {
@@ -28,10 +28,13 @@
     "webpack-dev-server": "^1.8.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "gulp build",
+    "dev": "gulp html && webpack-dev-server --hot",
+    "script": "gulp script"
   },
   "keywords": [
-    "react-component"
+    "react-component",
+    "misc"
   ],
   "author": "Teambition jiyinyiyong",
   "license": "MIT",

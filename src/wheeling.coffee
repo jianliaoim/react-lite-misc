@@ -1,4 +1,3 @@
-
 React = require 'react'
 debounce = require './debounce'
 
@@ -10,11 +9,15 @@ module.exports = React.createClass
   displayName: 'wheeling'
 
   propTypes:
+    delay:    T.number
     onScroll: T.func.isRequired
+
+  getDefaultProps: ->
+    delay: 400
 
   componentDidMount: ->
     @_rootEl = @getDOMNode()
-    @debounceDetect = debounce @detect, 400
+    @debounceDetect = debounce @detect, @props.delay
 
   onWheel: (event) ->
     @debounceDetect(event.nativeEvent)
