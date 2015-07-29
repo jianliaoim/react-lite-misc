@@ -3,6 +3,7 @@ React = require 'react'
 LoadingIndicator = React.createFactory require './loading-indicator'
 
 img = React.createFactory 'img'
+div = React.createFactory 'div'
 
 T = React.PropTypes
 
@@ -15,34 +16,53 @@ module.exports = React.createClass
     onClick: T.func.isRequired
 
   getInitialState: ->
-    isLoading: false
-    error: null
+    loadingState: 0
 
   componentDidMount: ->
-    @setState isLoading: true
-
+    #@setState loadingState: 0
+    ###
+      -1: error
+      0 : loading
+      1 : complete
+    ###
     @imgEl = document.createElement 'img'
-    @imgEl.src = @props.src
     @imgEl.onload = @onload
     @imgEl.onerror = @onerror
+    @imgEl.src = @props.src
+
 
   componentWillUnmount: ->
-    @imgEl.onload = null
-    @imgEl.onerror = null
+    @destroy
 
   onload: ->
-    @setState isLoading: false
+    @setState loadingState: 1
+    @destroy
 
   onerror: ->
-    @setState isLoading: false, error: "Failed to load image"
+    @setState loadingState: -1
+    @destroy
 
   onClick: (event) ->
     @props.onClick(event)
 
+  onReload: ->
+    @setState loadingState: 0
+    @componentDidMount()
+
+
+  destroy: ->
+    if @imgEl
+      @imgEl.onload = null
+      @imgEl.onerror = null
+      @imgEl = null
+
   render: ->
-    if @state.isLoading
-      LoadingIndicator()
-    else if @state.error?
-      @state.error
-    else
-      img src: @props.src, onClick: @onClick
+    switch @state.loadingState
+      when -1
+        div className: 'image-loading image-loading-error',
+          div className: 'title', '加载失败'
+          div className: 'reload', onClick: @onReload, '重新加载'
+      when 0
+        LoadingIndicator()
+      when 1
+        img src: @props.src, onClick: @onClick

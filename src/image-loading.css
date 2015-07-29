@@ -1,0 +1,22 @@
+.image-loading-error{
+    color: #808080;
+    text-align: center;
+}
+
+.image-loading-error .title{
+    font-weight: bold;
+    margin-bottom: 6px;
+    color: #6e6e6e;
+}
+
+.image-loading-error .reload{
+
+    cursor: pointer;
+    padding: 10px 14px;
+    border-radius: 3px;
+    background-color: rgba(152,192,183,.1);
+    font-weight: lighter;
+}
+.image-loading-error .reload:hover{
+    background-color: rgba(152,192,183,.3);
+}

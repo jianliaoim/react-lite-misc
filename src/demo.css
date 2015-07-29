@@ -64,6 +64,7 @@ body {
   display: -ms-flexbox;
   display: flex;
   min-height:260px;
+  flex-direction: column;
 }
 
 .image-loading-demo * {

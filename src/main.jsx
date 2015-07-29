@@ -165,7 +165,9 @@ var App = React.createClass({
 
     return  <div className="image-loading-demo">
               {this.state.showImageLoading?<ImageLoading src="https://ununsplash.imgix.net/photo-1433959352364-9314c5b6eb0b?fit=crop&fm=jpg&h=700&q=75&w=1050"/>
-                  :<button onClick={()=>{this.setState({showImageLoading: true})}}>Show Image Loading</button>}
+                  :<button onClick={()=>{this.setState({showImageLoading: true})}}>Show Normal Image Loading</button>}
+
+              <ImageLoading src="https://ununsplash.imgix.net"/>
             </div>
   },
   render: function() {
