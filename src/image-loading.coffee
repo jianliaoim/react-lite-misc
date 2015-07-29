@@ -32,15 +32,15 @@ module.exports = React.createClass
 
 
   componentWillUnmount: ->
-    @destroy
+    @destroy()
 
   onload: ->
     @setState loadingState: 1
-    @destroy
+    @destroy()
 
   onerror: ->
     @setState loadingState: -1
-    @destroy
+    @destroy()
 
   onClick: (event) ->
     @props.onClick(event)
@@ -59,7 +59,7 @@ module.exports = React.createClass
   render: ->
     switch @state.loadingState
       when -1
-        div className: 'image-loading image-loading-error',
+        div className: 'image-loading is-error',
           div className: 'title', '加载失败'
           div className: 'reload', onClick: @onReload, '重新加载'
       when 0
