@@ -3,12 +3,6 @@
     text-align: center;
 }
 
-.image-loading.is-error .title{
-    font-weight: bold;
-    margin-bottom: 6px;
-    color: #6e6e6e;
-}
-
 .image-loading.is-error .reload{
 
     cursor: pointer;

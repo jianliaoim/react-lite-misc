@@ -60,8 +60,7 @@ module.exports = React.createClass
     switch @state.loadingState
       when -1
         div className: 'image-loading is-error',
-          div className: 'title', '加载失败'
-          div className: 'reload', onClick: @onReload, '重新加载'
+          div className: 'reload', onClick: @onReload, '失败-重新加载'
       when 0
         LoadingIndicator()
       when 1
