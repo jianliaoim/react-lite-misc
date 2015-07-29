@@ -1,0 +1,16 @@
+.image-loading.is-error{
+    color: #808080;
+    text-align: center;
+}
+
+.image-loading.is-error .reload{
+
+    cursor: pointer;
+    padding: 10px 14px;
+    border-radius: 3px;
+    background-color: rgba(152,192,183,.1);
+    font-weight: lighter;
+}
+.image-loading.is-error .reload:hover{
+    background-color: rgba(152,192,183,.3);
+}
