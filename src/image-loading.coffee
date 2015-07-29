@@ -14,6 +14,7 @@ module.exports = React.createClass
   propTypes:
     src: T.string.isRequired
     onClick: T.func.isRequired
+    errMsg: T.string
 
   getInitialState: ->
     loadingState: 0
@@ -60,7 +61,7 @@ module.exports = React.createClass
     switch @state.loadingState
       when -1
         div className: 'image-loading is-error',
-          div className: 'reload', onClick: @onReload, '失败-重新加载'
+          div className: 'reload', onClick: @onReload, @props.errMsg
       when 0
         LoadingIndicator()
       when 1

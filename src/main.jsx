@@ -168,7 +168,7 @@ var App = React.createClass({
               {this.state.showImageLoading?<ImageLoading src="https://ununsplash.imgix.net/photo-1433959352364-9314c5b6eb0b?fit=crop&fm=jpg&h=700&q=75&w=1050"/>
                   :<button onClick={()=>{this.setState({showImageLoading: true})}}>Show Normal Image Loading</button>}
               <h3>Wrong Image</h3>
-              <ImageLoading src="https://ununsplash.imgix.net"/>
+              <ImageLoading src="https://ununsplash.imgix.net" errMsg="失败-重新载入"/>
             </div>
   },
   render: function() {
