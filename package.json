@@ -34,9 +34,10 @@
   },
   "scripts": {
     "prepublish": "gulp script",
-    "build": "gulp build",
-    "dev": "gulp html && webpack-dev-server --hot",
-    "script": "gulp script"
+    "postpublish": "gulp build && gulp rsync",
+    "prestart": "gulp html",
+    "start": "webpack-dev-server --hot --progress",
+    "test": ""
   },
   "keywords": [
     "react",

@@ -22,10 +22,10 @@ module.exports =
   module:
     loaders: [
       {test: /\.coffee$/, loader: 'coffee'}
-      {test: /\.css$/, loader: ExtractTextPlugin.extract('style', 'css!autoprefixer')}
+      {test: /\.css$/, loader: 'css!autoprefixer'}
       {test: /\.js$/, exclude: /node_modules/, loader: 'babel'}
       {test: /\.jsx$/, exclude: /node_modules/, loader: 'babel'}
-      {test: /\.less$/, loader: 'style!css!less'}
+      {test: /\.less$/, loader: 'style!css!less!autoprefixer'}
       {test: /\.(png|jpg)$/, loader: 'url', query: {limit: 2048, name: imageName}}
       {test: /\.woff((\?|\#)[\?\#\w\d_-]+)?$/, loader: "url", query: {limit: 100, minetype: 'application/font-woff', name: fontName}}
       {test: /\.woff2((\?|\#)[\?\#\w\d_-]+)?$/, loader: "url", query: {limit: 100, minetype: 'application/font-woff2', name: fontName}}

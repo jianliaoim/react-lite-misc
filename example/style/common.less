@@ -1,0 +1,43 @@
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: @font-family;
+  font-size: 16px;
+  line-height: 1.618;
+}
+
+a {
+  padding: 0 5px;
+  color: inherit;
+  text-decoration: underline;
+
+  &:hover {
+    background: @bg-link;
+    color: @color-link;
+  }
+}
+
+.intro {
+  margin-bottom: 30px;
+  padding: 30px 0;
+  background: @bg-intro;
+  color: @color-intro;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+#example {
+  width: 75%;
+
+  margin: 0 auto;
+}
