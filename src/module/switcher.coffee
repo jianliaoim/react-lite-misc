@@ -1,10 +1,9 @@
-
+cx = require 'classnames'
 React = require 'react'
 
 div = React.createFactory 'div'
 
 T = React.PropTypes
-cx = require 'classnames'
 
 module.exports = React.createClass
   displayName: 'switch-button'

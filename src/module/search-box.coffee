@@ -1,8 +1,8 @@
 React = require 'react'
 
-div    = React.createFactory 'div'
-span   = React.createFactory 'span'
-input  = React.createFactory 'input'
+div = React.createFactory 'div'
+span = React.createFactory 'span'
+input = React.createFactory 'input'
 
 T = React.PropTypes
 

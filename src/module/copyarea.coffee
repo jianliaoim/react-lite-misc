@@ -1,4 +1,3 @@
-
 React = require 'react'
 
 input = React.createFactory 'input'

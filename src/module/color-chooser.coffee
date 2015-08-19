@@ -1,10 +1,10 @@
+cx = require 'classnames'
 React = require 'react'
 
 div  = React.createFactory 'div'
 span = React.createFactory 'span'
 
 T = React.PropTypes
-cx = require 'classnames'
 
 module.exports = React.createClass
   displayName: 'color-chooser'

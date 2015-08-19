@@ -1,10 +1,11 @@
+require 'teambition-icon-fonts/css/teambition-ui-icons.css'
 
-exports.ColorChooser = require('./color-chooser')
-exports.Copyarea = require('./copyarea')
-exports.LoadingIndicator = require('./loading-indicator')
-exports.Switcher = require('./switcher')
-exports.SwitchTabs = require('./switch-tabs')
-exports.Wheeling = require('./wheeling')
-exports.SearchBox = require('./search-box')
-exports.LoadingMore = require('./loading-more')
-exports.ImageLoading = require('./image-loading')
+exports.ColorChooser = require './module/color-chooser'
+exports.Copyarea = require './module/copyarea'
+exports.ImageLoading = require './module/image-loading'
+exports.LoadingIndicator = require './module/loading-indicator'
+exports.LoadingMore = require './module/loading-more'
+exports.SearchBox = require './module/search-box'
+exports.SwitchTabs = require './module/switch-tabs'
+exports.Switcher = require './module/switcher'
+exports.Wheeling = require './module/wheeling'

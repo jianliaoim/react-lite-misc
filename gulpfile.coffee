@@ -45,7 +45,7 @@ gulp.task 'html', (cb) ->
 
 gulp.task 'del', (cb) ->
   del = require('del')
-  del [ 'build' ], cb
+  del [ 'build/' ], cb
 
 gulp.task 'webpack', (cb) ->
   if env.dev

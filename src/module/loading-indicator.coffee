@@ -1,4 +1,3 @@
-
 React = require 'react'
 
 div = React.createFactory 'div'

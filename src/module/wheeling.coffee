@@ -1,5 +1,6 @@
 React = require 'react'
-debounce = require './debounce'
+
+debounce = require '../util/debounce'
 
 div = React.createFactory 'div'
 
