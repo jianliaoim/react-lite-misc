@@ -1,31 +1,32 @@
-
 var
   stir $ require :stir-template
 
 var
-  (object~ html head title body meta script link div a span) stir
+  ({}~ html head title body meta script link div a span) stir
 
 var
-  line $ \ (text)
-    return $ div null text
+  line $ \ (text) (div ({} (:className :line)) text)
 
 = module.exports $ \ (data)
   return $ stir.render
     stir.doctype
     html null
       head null
-        title null ":Misc Components"
+        title null ":React Lite Misc"
         meta $ object (:charset :utf-8)
+        link $ object (:rel :icon)
+          :href :http://tp4.sinaimg.cn/5592259015/180/5725970590/1
+        link $ {} (:rel :stylesheet)
+          :href $ cond data.dev :src/main.css data.style
+        script $ object (:src data.vendor) (:defer true)
         script $ object (:src data.main) (:defer true)
       body null
-        div
-          object (:class :intro)
-          line ":Here are some components used in Talk by Teambition."
+        div ({} (:class :intro))
+          div ({} (:class :title)) ":Misc Components of jianliao.com."
           div null
             span null ":Read more at "
             a
-              object (:href :http://github.com/teambition/react-lite-misc)
+              {} (:href :http://github.com/teambition/react-lite-misc)
               , :github.com/teambition/react-lite-misc
             span null :.
-        div
-          object (:class :demo)
+        div ({} (:id :example))

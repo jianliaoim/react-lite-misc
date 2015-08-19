@@ -1,7 +1,7 @@
 {
   "name": "react-lite-misc",
   "version": "0.0.7",
-  "description": "Misc components from Talk by teambition",
+  "description": "Misc Components of jianliao.com",
   "main": "lib/index.js",
   "dependencies": {
     "classnames": "^2.1.3",
@@ -9,34 +9,42 @@
     "teambition-icon-fonts": "^0.72.6"
   },
   "devDependencies": {
-    "babel-core": "^5.1.10",
-    "babel-loader": "^5.0.0",
+    "autoprefixer-loader": "^2.0.0",
+    "babel-core": "^5.8.20",
+    "babel-loader": "^5.3.2",
     "cirru-script": "^0.2.3",
     "coffee-loader": "^0.7.2",
-    "coffee-script": "^1.9.1",
-    "css-loader": "^0.10.1",
-    "del": "^1.1.1",
+    "coffee-script": "^1.9.3",
+    "css-loader": "^0.16.0",
+    "del": "^1.2.0",
+    "extract-text-webpack-plugin": "^0.8.2",
     "file-loader": "^0.8.4",
-    "gulp": "^3.8.11",
+    "gulp": "^3.9.0",
     "gulp-coffee": "^2.3.1",
+    "less": "^2.5.1",
+    "less-loader": "^2.2.0",
+    "node-libs-browser": "^0.5.2",
     "rsyncwrapper": "^0.4.3",
-    "run-sequence": "^1.0.2",
+    "run-sequence": "^1.1.2",
     "stir-template": "^0.1.4",
-    "style-loader": "^0.10.2",
+    "style-loader": "^0.12.3",
     "url-loader": "^0.5.6",
-    "webpack": "^1.8.4",
-    "webpack-dev-server": "^1.8.0"
+    "webpack": "^1.10.5",
+    "webpack-dev-server": "^1.10.1"
   },
   "scripts": {
+    "prepublish": "gulp script",
     "build": "gulp build",
     "dev": "gulp html && webpack-dev-server --hot",
     "script": "gulp script"
   },
   "keywords": [
+    "react",
     "react-component",
-    "misc"
+    "react-lite",
+    "talk-ui"
   ],
-  "author": "Teambition jiyinyiyong",
+  "author": "Teambition",
   "license": "MIT",
   "repository": {
     "type": "git",

@@ -1,8 +1,9 @@
 *.log
 
 .idea
-build
-node_modules
-index.html
-lib
 
+/index.html
+
+/build
+/lib
+/node_modules
