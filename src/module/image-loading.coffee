@@ -12,6 +12,7 @@ module.exports = React.createClass
   propTypes:
     uploading: T.bool
     onClick: T.func
+    onLoaded: T.func
     src: T.string.isRequired
 
   getInitialState: ->
@@ -36,12 +37,15 @@ module.exports = React.createClass
 
   destroy: ->
     if @imgEl
-      delete @imgEl
+      @imgEl.onload = null
+      @imgEl.onerror = null
+      @imgEl = null
 
   onLoad: ->
     @setState
       loading: false
       loaded: true
+    @onLoaded()
     @destroy()
 
   onError: ->
@@ -50,8 +54,11 @@ module.exports = React.createClass
       loaded: false
     @destroy()
 
-  onClick: (event) ->
-    @props.onClick?(event)
+  onClick: ->
+    @props.onClick?()
+
+  onLoaded: ->
+    @props.onLoaded?()
 
   onReloadImage: (event) ->
     @setState loading: true
