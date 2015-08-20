@@ -1,6 +1,7 @@
 React = require 'react'
 
 div = React.createFactory 'div'
+i = React.createFactory 'i'
 img = React.createFactory 'img'
 span = React.createFactory 'span'
 
@@ -74,14 +75,14 @@ module.exports = React.createClass
     return if @state.loaded
     if not @state.loading
       div className: 'image-reload', onClick: @onReloadImage,
-        span className: 'icon icon-refresh'
+        i className: 'icon icon-refresh'
 
   renderLoading: ->
     return if @state.loaded
     if @state.loading
       div className: 'image-loader-box',
         div className: 'image-loader',
-          span className: 'icon icon-refresh'
+          i className: 'icon icon-refresh'
 
   render: ->
     div className: 'image-loading',
