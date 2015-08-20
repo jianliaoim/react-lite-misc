@@ -1,6 +1,6 @@
 {
   "name": "react-lite-misc",
-  "version": "0.0.9",
+  "version": "0.1.0",
   "description": "Misc Components of jianliao.com",
   "main": "lib/index.js",
   "dependencies": {
@@ -34,8 +34,8 @@
   },
   "scripts": {
     "prepublish": "rm -rf lib/ && gulp script",
-    "postpublish": "gulp build && gulp rsync",
     "prestart": "gulp html",
+    "rsync": "gulp build && gulp rsync",
     "start": "webpack-dev-server --hot --progress",
     "test": ""
   },
