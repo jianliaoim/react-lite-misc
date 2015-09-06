@@ -11,30 +11,33 @@ module.exports = React.createClass
   displayName: 'image-loading'
 
   propTypes:
-    uploading: T.bool
     onClick: T.func
     onLoaded: T.func
     src: T.string.isRequired
 
   getInitialState: ->
-    loading: true
-    loaded: false
+    loading: null
+    loaded: null
 
   componentDidMount: ->
-    if not @props.uploading
-      @load()
+    @load()
 
   componentWillReceiveProps: (props) ->
-    @load(props.src)
+    if @props.src isnt props.src
+      @load()
 
   componentWillUnmount: ->
     @destroy()
 
-  load: (src) ->
+  load:  ->
     @imgEl = document.createElement 'img'
     @imgEl.onload = @onLoad
     @imgEl.onerror = @onError
-    @imgEl.src = src or @props.src
+    @imgEl.src = @props.src
+    # set state depending on the status of the local image
+    @setState
+      loaded: @imgEl.complete
+      loading: not @imgEl.complete
 
   destroy: ->
     if @imgEl
@@ -47,13 +50,11 @@ module.exports = React.createClass
       loading: false
       loaded: true
     @onLoaded()
-    @destroy()
 
   onError: ->
     @setState
       loading: false
       loaded: false
-    @destroy()
 
   onClick: ->
     @props.onClick?()
@@ -66,25 +67,29 @@ module.exports = React.createClass
     @load()
 
   renderImage: ->
-    if @props.uploading or not @state.loaded
-      div className: 'image-error'
-    else
+    if @state.loaded
       img src: @props.src, onClick: @onClick
+    else
+      div className: 'image-error'
 
   renderButton: ->
-    return if @state.loaded
-    if not @state.loading
+    if not @state.loaded and not @state.loading
       div className: 'image-reload', onClick: @onReloadImage,
         i className: 'icon icon-refresh'
 
   renderLoading: ->
-    return if @state.loaded
-    if @state.loading
+    if not @state.loaded and @state.loading
       div className: 'image-loader-box',
         div className: 'image-loader',
           i className: 'icon icon-refresh'
 
   render: ->
+    # do not render anything until we determine the states of the image
+    # it's either:
+    # - a local image, which means we can render it immediately
+    # - a online image, we need to show the loading image first
+    return null if not @state.loaded?
+
     div className: 'image-loading',
       @renderImage()
       @renderButton()
