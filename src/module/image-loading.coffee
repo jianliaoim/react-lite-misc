@@ -16,8 +16,12 @@ module.exports = React.createClass
     src: T.string.isRequired
 
   getInitialState: ->
-    loading: null
-    loaded: null
+    # Presume the image is loaded successfully if src is a data uri
+    # Yes this is an anti-pattern but we don't need to render
+    # a loading state if src is a data uri
+    isDataUri = @props.src.substring(0, 4) is 'data'
+    loaded: isDataUri
+    loading: not isDataUri
 
   componentDidMount: ->
     @load()
@@ -84,12 +88,6 @@ module.exports = React.createClass
           i className: 'icon icon-refresh'
 
   render: ->
-    # do not render anything until we determine the states of the image
-    # it's either:
-    # - a local image, which means we can render it immediately
-    # - a online image, we need to show the loading image first
-    return null if not @state.loaded?
-
     div className: 'image-loading',
       @renderImage()
       @renderButton()
