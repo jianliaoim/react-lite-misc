@@ -1,24 +1,40 @@
+fs = require 'fs'
 exec = require('child_process').exec
 gulp = require 'gulp'
 sequence = require 'run-sequence'
 
+port = fs.readFileSync '.port', 'utf8'
+
 env =
   dev: true
-  main: 'http://localhost:8080/build/main.js'
-  vendor: 'http://localhost:8080/build/vendor.js'
+  main: "//localhost:#{ port }/react-lite-misc/main.js"
+  style: "//localhost:#{ port }/react-lite-misc/style.css"
+  vendor: "//localhost:#{ port }/react-lite-misc/vendor.js"
 
-gulp.task 'script', ->
-  coffee = require 'gulp-coffee'
+gulp.task 'del', (cb) ->
+  del = require 'del'
+  del [ './build/', './lib/' ], cb
+
+gulp.task 'html', ->
+  swig = require 'gulp-swig'
+
+  assets = undefined
+  unless env.dev
+    assets = require './build/assets.json'
+    env.main = './build/' + assets.main[0]
+    env.style = './build/' + assets.main[1]
+    env.vendor = './build/' + assets.vendor
+
   gulp
-  .src 'src/**/*.coffee'
-  .pipe coffee()
-  .pipe gulp.dest 'lib/'
+  .src './index.template'
+  .pipe swig data: env
+  .pipe gulp.dest './'
 
 gulp.task 'rsync', (cb) ->
   wrapper = require 'rsyncwrapper'
   wrapper.rsync
     ssh: true
-    src: [ 'index.html', 'build' ]
+    src: [ './index.html', './build' ]
     recursive: true
     args: [ '--verbose' ]
     dest: 'talk-ui:/teambition/server/talk-ui/react-lite-misc'
@@ -30,22 +46,13 @@ gulp.task 'rsync', (cb) ->
     console.log cmd
     cb()
 
-gulp.task 'html', (cb) ->
-  require 'cirru-script/lib/register'
-  html = require './template.cirru'
-  fs = require 'fs'
-  assets = undefined
-  unless env.dev
-    assets = require './build/assets.json'
-    env.main = './build/' + assets.main[0]
-    env.vendor = './build/' + assets.vendor
-    env.style = './build/' + assets.main[1]
+gulp.task 'script', ->
+  coffee = require 'gulp-coffee'
 
-  fs.writeFile 'index.html', html(env), cb
-
-gulp.task 'del', (cb) ->
-  del = require('del')
-  del [ 'build/' ], cb
+  gulp
+  .src './src/**/*.coffee'
+  .pipe coffee()
+  .pipe gulp.dest './lib/'
 
 gulp.task 'webpack', (cb) ->
   if env.dev

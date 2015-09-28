@@ -1,5 +1,3 @@
-require './main.less'
-
 React = require 'react'
 
 ImageLoading = React.createFactory require('../src/index').ImageLoading
@@ -51,6 +49,4 @@ App = React.createFactory React.createClass
       @renderImageLocal()
       @renderImageFailed()
 
-mount = document.getElementById 'example'
-
-React.render App(), mount
+React.render App(), document.querySelector '.example'

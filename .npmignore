@@ -1,6 +1,9 @@
-/gulpfile.coffee
-/index.html
-/template.cirru
+/.port
+
+/gulpfile.*
+/index.*
+/port.coffee
+/start.sh
 /webpack.*
 
 /build
