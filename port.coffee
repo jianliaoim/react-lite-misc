@@ -1,6 +1,15 @@
 fs = require 'fs'
-getport = require 'getport'
+net = require 'net'
 
-getport 8080, (err, port) ->
-  throw new Error(err) if err
-  fs.writeFileSync '.port', "#{ port }", 'utf8'
+getPort = (port, cb) ->
+  connect = net.connect port, ->
+    connect.destroy()
+    getPort port + 1, cb
+  connect.on 'error', ->
+    cb port
+
+writePort = (port) ->
+  getPort port, (port) ->
+    fs.writeFileSync '.port', "#{ port }", 'utf8'
+
+writePort 8080

@@ -1,6 +1,6 @@
 {
   "name": "react-lite-misc",
-  "version": "1.0.0",
+  "version": "1.1.0-alpha1",
   "description": "Misc Components of jianliao.com",
   "main": "lib/index.js",
   "dependencies": {
@@ -19,7 +19,6 @@
     "del": "^2.0.2",
     "extract-text-webpack-plugin": "^0.8.2",
     "file-loader": "^0.8.4",
-    "getport": "^0.1.0",
     "gulp": "^3.9.0",
     "gulp-coffee": "^2.3.1",
     "gulp-swig": "^0.7.4",
