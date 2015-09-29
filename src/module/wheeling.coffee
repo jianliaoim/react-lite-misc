@@ -1,6 +1,6 @@
 React = require 'react'
 
-debounce = require '../util/debounce'
+debounce = require 'debounce'
 
 div = React.createFactory 'div'
 
@@ -21,7 +21,7 @@ module.exports = React.createClass
     @debounceDetect = debounce @detect, @props.delay
 
   onWheel: (event) ->
-    @debounceDetect(event.nativeEvent)
+    @debounceDetect event.nativeEvent
 
   detect: (event) ->
     info =

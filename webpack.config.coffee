@@ -24,7 +24,7 @@ module.exports =
       {test: /\.jsx$/, exclude: /node_modules/, loader: 'babel'}
       {test: /\.css$/, loader: ExtractTextPlugin.extract 'style', 'css?importLoaders=1!autoprefixer?{browsers:[\'> 1%\']}'}
       {test: /\.less$/, loader: ExtractTextPlugin.extract 'style', 'css?importLoaders=1!autoprefixer?{browsers:[\'> 1%\']}!less'}
-      {test: /\.(bmp|gif|png|jpg)$/, loader: 'url', query: {limit: 2048, name: imageName}}
+      {test: /\.(bmp|gif|jpg|png)$/, loader: 'url', query: {limit: 2048, name: imageName}}
       {test: /\.woff((\?|\#)[\?\#\w\d_-]+)?$/, loader: 'url', query: {limit: 100, minetype: 'application/font-woff', name: fontName}}
       {test: /\.woff2((\?|\#)[\?\#\w\d_-]+)?$/, loader: 'url', query: {limit: 100, minetype: 'application/font-woff2', name: fontName}}
       {test: /\.ttf((\?|\#)[\?\#\w\d_-]+)?$/, loader: 'url', query: {limit: 100, minetype: 'application/octet-stream', name: fontName}}
