@@ -1,0 +1,19 @@
+<html>
+<head>
+  <title>react-lite-misc</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" href="{{ style }}" />
+  <script src="{{ vendor }}" defer="true"></script>
+  <script src="{{ main }}" defer="true"></script>
+</head>
+<body>
+  <div class="intro">
+    <div class="title">
+      Misc Components of jianliao.com.
+    </div>
+    <div><span>Read more at </span><a href="http://github.com/teambition/react-lite-misc">github.com/teambition/react-lite-misc</a></div>
+  </div>
+  <div class="example"></div>
+</body>
+</html>

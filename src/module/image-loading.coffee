@@ -1,7 +1,7 @@
 React = require 'react'
 
-div = React.createFactory 'div'
 i = React.createFactory 'i'
+div = React.createFactory 'div'
 img = React.createFactory 'img'
 span = React.createFactory 'span'
 
