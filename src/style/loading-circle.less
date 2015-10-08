@@ -1,0 +1,34 @@
+.lite-loading-circle {
+  position: relative;
+  display: inline-block;
+}
+
+.lite-loading-circle .inner {
+  animation: lite-loading-circle-rotate 1.8s linear infinite;
+}
+
+.lite-loading-circle .inner-circle {
+  // stroke-dashoffset: 240%;
+  animation: lite-loading-circle-dash 1.2s linear infinite;
+  transform-origin: center;
+}
+
+@keyframes lite-loading-circle-rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes lite-loading-circle-dash {
+  0% {
+    stroke-dashoffset: 251.2%;
+    // stroke-dasharray: 250% 50%;
+  }
+  40% {
+    stroke-dashoffset: 50.24%;
+    stroke-dasharray: 251.2% 50.24%;
+  }
+  100% {
+    stroke-dashoffset: -251.2%;
+    stroke-dasharray: 50.24% 251.2%;
+  }
+}

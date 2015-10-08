@@ -3,6 +3,7 @@ require './main.less'
 React = require 'react'
 
 ImageLoading = React.createFactory require('../src/index').ImageLoading
+LoadingCircle = React.createFactory require('../src/index').LoadingCircle
 
 button = React.createFactory 'button'
 div = React.createFactory 'div'
@@ -42,6 +43,9 @@ App = React.createFactory React.createClass
       ImageLoading
         src: failedImage
 
+  renderLoadingCircle: ->
+    LoadingCircle()
+
   toggleLocal: ->
     @setState showLocalImage: not @state.showLocalImage
 
@@ -50,6 +54,7 @@ App = React.createFactory React.createClass
       @renderImageLoading()
       @renderImageLocal()
       @renderImageFailed()
+      @renderLoadingCircle()
 
 mount = document.getElementById 'example'
 
