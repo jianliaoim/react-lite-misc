@@ -18,17 +18,28 @@ module.exports = React.createClass
 
   componentDidMount: ->
     @_rootEl = @getDOMNode()
+    @_wasGoingUp = false
+    @_wasGoingDown = false
     @debounceDetect = debounce @detect, @props.delay
 
   onWheel: (event) ->
-    @debounceDetect(event.nativeEvent)
+    if event.deltaY > 0
+      @_wasGoingUp = false
+      @_wasGoingDown = true
+    else if event.deltaY < 0
+      @_wasGoingUp = true
+      @_wasGoingDown = false
+    # we cannot directly pass event.deltaY to this debounced function
+    # because event.deltaY would end up with either 0 or -0
+    # resulting goingUp and goingDown with false no matter what
+    @debounceDetect()
 
-  detect: (event) ->
+  detect: ->
     info =
       atTop: @_rootEl.scrollTop is 0
       atBottom: (@_rootEl.scrollTop + @_rootEl.clientHeight) is @_rootEl.scrollHeight
-      goingUp: event.deltaY < 0
-      goingDown: event.deltaY > 0
+      goingUp: @_wasGoingUp
+      goingDown: @_wasGoingDown
     @props.onScroll info
 
   render: ->
