@@ -1,6 +1,6 @@
 {
   "name": "react-lite-misc",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Misc Components of jianliao.com",
   "main": "lib/index.js",
   "dependencies": {
