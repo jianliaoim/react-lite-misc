@@ -4,6 +4,7 @@ React = require 'react'
 
 ImageLoading = React.createFactory require('../src/index').ImageLoading
 LoadingCircle = React.createFactory require('../src/index').LoadingCircle
+Wheeling = React.createFactory require('../src/index').Wheeling
 
 button = React.createFactory 'button'
 div = React.createFactory 'div'
@@ -44,10 +45,18 @@ App = React.createFactory React.createClass
         src: failedImage
 
   renderLoadingCircle: ->
-    LoadingCircle()
+    div className: 'section',
+      LoadingCircle()
 
   toggleLocal: ->
     @setState showLocalImage: not @state.showLocalImage
+
+  renderWheeling: ->
+    onScroll = (data) ->
+      console.log(data)
+    div className: 'section', style: {height: '300px'},
+      Wheeling className: 'wheeling-inner-section', onScroll: onScroll,
+        div style: {height: '1000px'}
 
   render: ->
     div className: 'app',
@@ -55,6 +64,7 @@ App = React.createFactory React.createClass
       @renderImageLocal()
       @renderImageFailed()
       @renderLoadingCircle()
+      @renderWheeling()
 
 mount = document.getElementById 'example'
 
