@@ -1,4 +1,6 @@
-require 'teambition-icon-fonts/css/teambition-ui-icons.css'
+
+if typeof window isnt 'undefined'
+  require 'teambition-icon-fonts/css/teambition-ui-icons.css'
 
 exports.ColorChooser = require './module/color-chooser'
 exports.Copyarea = require './module/copyarea'
