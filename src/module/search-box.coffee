@@ -16,6 +16,8 @@ module.exports = React.createClass
     autoFocus: T.bool.isRequired
     onBlur:    T.func
     onConfirm: T.func
+    onClick:   T.func
+    onFocus:   T.func
 
   onChange: (event) ->
     @props.onChange event.target.value
@@ -27,6 +29,12 @@ module.exports = React.createClass
   onBlur: (event) ->
     @props.onBlur? event.target.value
 
+  onClick: (event) ->
+    @props.onClick? event
+
+  onFocus: (event) ->
+    @props.onFocus? event
+
   render: ->
 
     div className: 'search-box',
@@ -36,3 +44,4 @@ module.exports = React.createClass
         onChange: @onChange, value: @props.value
         onKeyDown: @onKeyDown, onBlur: @onBlur
         autoFocus: @props.autoFocus
+        onClick: @onClick, onFocus: @onFocus
