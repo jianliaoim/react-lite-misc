@@ -17,7 +17,7 @@ module.exports = React.createClass
     delay: 400
 
   componentDidMount: ->
-    @_rootEl = @getDOMNode()
+    @_rootEl = @refs.root
     @_wasGoingUp = false
     @_wasGoingDown = false
     @debounceDetect = debounce @detect, @props.delay
@@ -43,5 +43,5 @@ module.exports = React.createClass
     @props.onScroll info
 
   render: ->
-    div className: 'wheeling', onWheel: @onWheel,
+    div ref: 'root', className: 'wheeling', onWheel: @onWheel,
       @props.children

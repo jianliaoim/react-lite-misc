@@ -1,6 +1,7 @@
 require './main.less'
 
 React = require 'react'
+ReactDOM = require 'react-dom'
 
 ImageLoading = React.createFactory require('../src/index').ImageLoading
 LoadingCircle = React.createFactory require('../src/index').LoadingCircle
@@ -68,4 +69,4 @@ App = React.createFactory React.createClass
 
 mount = document.getElementById 'example'
 
-React.render App(), mount
+ReactDOM.render App(), mount

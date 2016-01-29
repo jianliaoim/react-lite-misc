@@ -11,12 +11,13 @@ module.exports = React.createClass
     text: T.string.isRequired
 
   componentDidMount: ->
-    @getDOMNode().select()
+    @refs.root.select()
 
   onEnter: (event) ->
     event.target.select()
 
   render: ->
     input
+      ref: 'root'
       className: 'copyarea form-control', readOnly: true
       onMouseEnter: @onEnter, value: @props.text

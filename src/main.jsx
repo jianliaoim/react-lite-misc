@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
 
 import {ColorChooser} from './index'
 import './color-chooser.css'
@@ -213,4 +214,4 @@ var App = React.createClass({
   }
 });
 
-React.render(<App/>, document.querySelector('.demo'))
+ReactDOM.render(<App/>, document.querySelector('.demo'))
