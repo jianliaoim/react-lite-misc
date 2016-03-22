@@ -1,6 +1,6 @@
 
 if typeof window isnt 'undefined'
-  require 'teambition-icon-fonts/css/teambition-ui-icons.css'
+  require 'talk-iconfonts/lib/css/talk-iconfonts.min.css'
 
 exports.ColorChooser = require './module/color-chooser'
 exports.Copyarea = require './module/copyarea'

@@ -21,8 +21,8 @@ module.exports = React.createClass
     names = Object.keys(@props.data)
     names.map (name) =>
       color = @props.data[name]
-      className = cx 'color-icon', 'icon',
-        'icon-tick': @props.chosen is name
+      className = cx 'color-icon', 'ti',
+        'ti-tick': @props.chosen is name
         'is-chosen': @props.chosen is name
       style =
         backgroundColor: color or '#ff9800'

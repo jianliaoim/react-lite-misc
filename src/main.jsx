@@ -20,7 +20,7 @@ import {Wheeling} from './index'
 import './wheeling.css'
 
 import {SearchBox} from './index'
-require('teambition-icon-fonts/css/teambition-ui-icons.css')
+require('talk-iconfonts/lib/css/talk-iconfonts.min.css')
 import './search-box.css'
 
 import {LoadingMore} from './index'

@@ -36,9 +36,8 @@ module.exports = React.createClass
     @props.onFocus? event
 
   render: ->
-
     div className: 'search-box',
-      span className: 'icon icon-search'
+      span className: 'ti ti-search'
       input
         type: 'text', className: 'input', placeholder: @props.locale
         onChange: @onChange, value: @props.value
