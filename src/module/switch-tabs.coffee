@@ -31,7 +31,7 @@ module.exports = React.createClass
     text = if @props.getText? then @props.getText(tab) else tab
     div key: tab, className: className, onClick: onClick,
       if icon
-        span className: "icon icon-#{icon}"
+        span className: "ti ti-#{icon}"
       span className: 'text', text
 
   render: ->

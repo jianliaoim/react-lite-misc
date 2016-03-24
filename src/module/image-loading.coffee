@@ -78,14 +78,12 @@ module.exports = React.createClass
 
   renderButton: ->
     if not @state.loaded and not @state.loading
-      div className: 'image-reload', onClick: @onReloadImage,
-        i className: 'icon icon-refresh'
+      i className: 'image-reload ti ti-refresh', onClick: @onReloadImage
 
   renderLoading: ->
     if not @state.loaded and @state.loading
       div className: 'image-loader-box',
-        div className: 'image-loader',
-          i className: 'icon icon-refresh'
+        i className: 'ti ti-refresh image-loader'
 
   render: ->
     div className: 'image-loading',
